@@ -1,7 +1,12 @@
 ---
-- name: Install Python virtualenv so WriteIt can be deployed
-  apt:
-    name: python-virtualenv
-    update_cache: yes
+- name: Install package dependencies
+  apt: name={{ item }} state=present
+  with_items:
+    - python-virtualenv
+    - g++
+    - python-dev
+    - libffi-dev
+    - build-essential
+
 - name: Ensure deploy folder is created
   file: owner=deploy group=deploy path=/srv/write-it state=directory
