@@ -1,2 +1,7 @@
 ---
-# tasks file for roles/write-it
+- name: Install Python virtualenv so WriteIt can be deployed
+  apt:
+    name: python-virtualenv
+    update_cache: yes
+- name: Ensure deploy folder is created
+  file: owner=deploy group=deploy path=/srv/write-it state=directory
