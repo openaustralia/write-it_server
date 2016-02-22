@@ -1,0 +1,13 @@
+---
+dependencies:
+  - role: deploy-user
+    github_users: ['henare']
+  - role: xcezx.aliases
+    aliases:
+      - {user: deploy, alias: root}
+      - {user: root, alias: web-administrators@openaustralia.org}
+  - role: ANXS.ntp
+  - role: jnv.unattended-upgrades
+    unattended_automatic_reboot: true
+  # TODO This runs apt update. Fix this
+  - role: MaximeThoonsen.autopostgresqlbackup
