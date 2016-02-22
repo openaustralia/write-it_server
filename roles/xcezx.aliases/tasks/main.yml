@@ -2,6 +2,7 @@
   apt: >
     name=postfix
     state=present
+    update_cache=yes
 
 - name: configure /etc/aliases
   lineinfile:
